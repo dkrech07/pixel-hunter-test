@@ -1,8 +1,6 @@
-import {getElementFromTemplate} from './create-block.js';
-import {showScreen} from './insert-block';
-import {intro} from './intro.js';
+import {showIntro} from './intro.js';
 
-showScreen(getElementFromTemplate(intro));
+showIntro();
 
 // const ARROW_LEFT_KEYCODE = 37;
 // const ARROW_RIGHT_KEYCODE = 39;

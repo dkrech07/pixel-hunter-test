@@ -1,3 +1,7 @@
+import {getElementFromTemplate} from './create-block.js';
+import {showScreen} from './insert-block';
+import {showGreeting} from './greeting.js'
+
 const intro =
 `<div id="main" class="central__content">
     <div id="intro" class="intro">
@@ -16,4 +20,18 @@ const intro =
     </div>
   </footer>`;
 
-export {intro};
+const addAsteriskClickHandle = () => {
+  const asteriskButton = document.querySelector(`.intro__asterisk`);
+  const asteriskButtonClickHandler = () => {
+    showGreeting();
+  };
+  asteriskButton.addEventListener(`click`, asteriskButtonClickHandler);
+};
+
+const showIntro = () => {
+  showScreen(getElementFromTemplate(intro));
+  addAsteriskClickHandle();
+};
+
+
+export {showIntro};

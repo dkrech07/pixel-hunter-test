@@ -1,3 +1,6 @@
+import {getElementFromTemplate} from './create-block.js';
+import {showScreen} from './insert-block';
+
 const greeting =
   `<div class="greeting central--blur">
     <div class="greeting__logo"><img src="img/logo_big.png" width="201" height="89" alt="Pixel Hunter"></div>
@@ -23,4 +26,17 @@ const greeting =
     </div>
   </footer>`;
 
-export {greeting};
+const addNextButtonHandle = () => {
+  const nextButton = document.querySelector(`.greeting__continue`);
+  const nextClickHandler = () => {
+    console.log(`ok`);
+    nextButton.removeEventListener(`click`, nextClickHandler);
+  };
+  nextButton.addEventListener(`click`, nextClickHandler);
+};
+
+const showGreeting = () => {
+  showScreen(getElementFromTemplate(greeting));
+};
+
+export {showGreeting};
