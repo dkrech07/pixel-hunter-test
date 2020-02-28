@@ -1,3 +1,6 @@
+import {getElementFromTemplate} from './create-block.js';
+import {showScreen} from './insert-block';
+
 const rules =
 `<header class="header">
     <div class="header__back">
@@ -33,3 +36,42 @@ const rules =
       <a href="https://vk.com/htmlacademy" class="social-link  social-link--vk">Вконтакте</a>
     </div>
   </footer>`;
+
+const checkFormRules = () => {
+  const rulesForm = document.querySelector(`.rules__form`);
+  const rulesInput = rulesForm.querySelector(`.rules__input`);
+  const rulesButton = rulesForm.querySelector(`.rules__button`);
+
+  // const checkInputAuto = setTimeout(() => console.log(`timer`), 100);
+  // checkInputAuto();
+
+  const rulesInputChange = (evt) => {
+    let inputValue = evt.target.value;
+
+    if (inputValue) {
+      rulesButton.disabled = false;
+    } else {
+      rulesButton.disabled = true;
+    }
+
+    console.log(`rulesInputChange`);
+    console.log(inputValue);
+    console.log(`ok`);
+  };
+
+  const rulesFormSend = (evt) => {
+    evt.preventDefault();
+    console.log(`rulesFormSend`);
+    console.log(evt);
+  };
+
+  rulesInput.addEventListener(`focus`, rulesInputChange);
+  rulesForm.addEventListener(`submit`, rulesFormSend);
+};
+
+const showRules = () => {
+  showScreen(getElementFromTemplate(rules));
+  checkFormRules();
+};
+
+export {showRules};

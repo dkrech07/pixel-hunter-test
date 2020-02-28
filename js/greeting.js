@@ -1,5 +1,6 @@
 import {getElementFromTemplate} from './create-block.js';
 import {showScreen} from './insert-block';
+import {showRules} from './rules.js';
 
 const greeting =
   `<div class="greeting central--blur">
@@ -29,7 +30,7 @@ const greeting =
 const addNextButtonHandle = () => {
   const nextButton = document.querySelector(`.greeting__continue`);
   const nextClickHandler = () => {
-    console.log(`ok`);
+    showRules();
     nextButton.removeEventListener(`click`, nextClickHandler);
   };
   nextButton.addEventListener(`click`, nextClickHandler);
@@ -37,6 +38,7 @@ const addNextButtonHandle = () => {
 
 const showGreeting = () => {
   showScreen(getElementFromTemplate(greeting));
+  addNextButtonHandle();
 };
 
 export {showGreeting};

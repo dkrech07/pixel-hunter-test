@@ -1,6 +1,10 @@
-import {showIntro} from './intro.js';
+// import {showIntro} from './intro.js';
+//
+// showIntro();
 
-showIntro();
+import {showRules} from './rules.js';
+
+showRules();
 
 // const ARROW_LEFT_KEYCODE = 37;
 // const ARROW_RIGHT_KEYCODE = 39;
